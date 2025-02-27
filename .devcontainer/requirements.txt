@@ -1,7 +1,0 @@
-openai
-spacy
-selenium
-beautifulsoup4
-scikit-learn
-requests
-numpy

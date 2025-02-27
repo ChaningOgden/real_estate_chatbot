@@ -1,4 +1,5 @@
 {
+    // ref: https://xebia.com/blog/how-to-create-a-devcontainer-for-your-python-project/
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".."
@@ -8,7 +9,17 @@
             "extensions": [
                 "ms-azuretools.vscode-docker",
                 "ms-python.python"
-            ]
+            ],
+            "settings": {
+                "python.testing.pytestArgs": [
+                    "."
+                ],
+                "python.testing.unittestEnabled": false,
+                "python.testing.pytestEnabled": true,
+                "python.formatting.provider": "black",
+                "python.linting.mypyEnabled": true,
+                "python.linting.enabled": true
+            }
         }
     }
 }

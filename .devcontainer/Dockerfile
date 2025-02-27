@@ -1,14 +1,17 @@
+# Rqurements:
+    # Tensorflow - https://www.tensorflow.org/install/pip
+
 # Use an official Python runtime as the base image
-FROM python:3.13
+FROM python:3.12
 
-# Set the working directory in the container
-WORKDIR /app
+# Dependencies
+## Upgrade pip
+RUN pip install --upgrade pip
 
-# Copy the local code to the container
-COPY . /app
+## Copy the requirements file into the container
+COPY requirements.txt .
+COPY requirements-dev.txt .
 
-# Install dependencies
+## Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Download NLP model for Spacy
-RUN python -m spacy download en_core_web_sm
+RUN pip install --no-cache-dir -r requirements-dev.txt
